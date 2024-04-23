@@ -28,18 +28,17 @@ body {
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
-    opacity:0.6;
 }
 
 #header svg {
     width:30px;
     height:30px;
     padding:5px;
-    fill:aliceblue;
+    fill:rgb(241, 241, 241);
 }
 
 #header p {
     padding:5px;
-    color:rgb(238, 238, 238);
+    color:rgb(247, 247, 247);
     font-size: 1.7rem;
 }
