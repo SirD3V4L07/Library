@@ -26,10 +26,10 @@ function displayBooks() {
     for (let i = 0; i < 20; i++) {
         document.getElementById("tiles").innerHTML += `
         <div class="book-tile">
-        <p>Title:</p>
-        <p>Author:</p>
-        <p>Pages:</p>
-        <p>Read:</p>
+        <p>Title</p>
+        <p>Author</p>
+        <p>Pages</p>
+        <div class="read-status"><p>Read</p><img src="./media/notread.png"></div>
         </div>
         `;
     }
