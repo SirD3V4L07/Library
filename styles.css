@@ -9,7 +9,9 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 6fr;
-    font-family: "Noto Serif", serif;}
+    font-family: "Noto Serif", serif;
+    overflow-y: hidden;
+}
 
 #header {
     grid-row: 1 / 2;
@@ -57,6 +59,13 @@ body {
 #tiles {
     grid-row: 1 / 2;
     grid-column: 1 / 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(autofit, 50px);
+    overflow-y: scroll;
+    gap:10px;
+    padding:10px;
+    height:100%;
 }
 
 #stats {
@@ -86,4 +95,11 @@ body {
     color:#ddd;
     margin:5px;
     padding:5px;
+}
+
+.book-tile {
+    background-color: #7d6c56;
+    padding: 15px 10px;
+    max-height: 50%;
+    border-radius:10px;
 }
