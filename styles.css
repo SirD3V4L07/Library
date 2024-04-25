@@ -116,10 +116,14 @@ body {
 .book-tile * {
     margin:0;
     padding:5px;
+    text-align: center;
+    font-size: 0.9rem;
 }
 
-.book-tile >*:nth-child(1) {
+.book-tile > *:nth-child(1) {
     font-size: 1.3rem;
+    font-weight: 700;
+    padding-bottom:10px;
 }
 
 /* width */
