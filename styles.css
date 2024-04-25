@@ -79,10 +79,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding:15px 30px;
 }
 
 #stats-tile div {
     color:#ddd;
-    margin:5px 20px;
+    margin:5px;
     padding:5px;
 }
