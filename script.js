@@ -23,7 +23,7 @@ function displayBooks() {
     </div>
     `;
 
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 20; i++) {
         document.getElementById("tiles").innerHTML += `
         <div class="book-tile">
         <p>Title:</p>
