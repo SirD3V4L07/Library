@@ -176,6 +176,7 @@ background: #74594b;
     border:none;
     padding: 10px 0;
     margin:8px 0;
+    border-radius: 5px;
 }
 
 #book-form form input::placeholder {
@@ -194,6 +195,7 @@ background: #74594b;
     color:white;
     font-weight: 400;
     margin:15px 10px;
+    border-radius: 5px;
 }
 
 #book-form button:hover {
