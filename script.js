@@ -7,28 +7,31 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-let book1 = new Book("Book Title", "Author Name", 233, false);
-let book2 = new Book("Sapiens", "Yuval", 512, false);
+let book1 = new Book("Mastery", "Robert Greene", 600, false);
+let book2 = new Book("Sapiens", "Yuval Noah Harari", 512, false);
 
 bookList.push(book1);
 bookList.push(book2);
 
 function displayBooks() {
     document.getElementById("tiles").innerHTML += `
-    <div class="book-tile">
-    <p>Title:</p>
-    <p>Author:</p>
-    <p>Pages:</p>
-    <p>Read:</p>
+    <div id="book-form" class="book-tile">
+    <p>New Book</p>
+    <form method="post">
+    <input type="text" name="title" id="title-input" placeholder="Title" />
+    <input type="text" name="author" id="author-input" placeholder="Author" />
+    <input type="number" name="pages" id="pages-input" placeholder="Pages" />
+    <button type="submit">Submit</button>
+    </form>
     </div>
     `;
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < bookList.length; i++) {
         document.getElementById("tiles").innerHTML += `
         <div class="book-tile">
-        <p>A Song of Ice and Fire</p>
-        <p>George R R Martin</p>
-        <p>600 Pages</p>
+        <p>${bookList[i].title}</p>
+        <p>${bookList[i].author}</p>
+        <p>${bookList[i].pages} pages</p>
         <div class="read-status"><p>Read</p><img src="./media/notread.png"></div>
         </div>
         `;

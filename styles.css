@@ -164,3 +164,45 @@ background: #74594b;
 .read-status * {
     padding:5px;
 }
+
+#book-form {
+    background-color: #8b7c66;
+}
+
+#book-form form input {
+    max-width: 80%;
+    max-height: 2px;
+    background-color: #bdb2a2;
+    border:none;
+    padding: 10px 0;
+    margin:8px 0;
+}
+
+#book-form form input::placeholder {
+    color: #555;
+    
+}
+
+#book-form form button {
+    min-width: 120px;
+    width: 80%;
+    height:25px;
+    padding:0;
+    cursor: pointer;
+    background-color: #665846;
+    border:none;
+    color:white;
+    font-weight: 400;
+    margin:15px 10px;
+}
+
+#book-form button:hover {
+    background-color: #554634;
+}
+
+/* Hide little arrows in number input fields */
+input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
