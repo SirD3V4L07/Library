@@ -13,13 +13,13 @@ function displayBooks() {
     isValid = formValidation();
     if (isValid) {
         insertBook();
-        resetTiles();
         updateTiles();
     }
     
 }
 
 function updateTiles() {
+    resetTiles();
     for (let i = 0; i < bookList.length; i++) {
         let tileClass = bookList[i].read ? "read" : "unread";
         document.getElementById("tiles").innerHTML += `
@@ -28,10 +28,12 @@ function updateTiles() {
         <p>${bookList[i].author}</p>
         <p>${bookList[i].pages} pages</p>
         <div class="read-status"><p>Read</p><a src="#" class="read-button" data-index="${i}"><img src="./media/read${bookList[i].read}.png"></a></div>
+        <a src="#" class="trash-button" data-index="${i}"><div class="trash"><a src="#" class="trash-button" data-index="${i}"><img src="./media/trash.png"></div></a>
         </div>
         `;
     }
     changeReadStatus();
+    deleteBook();
 }
 
 function insertBook() {
@@ -50,7 +52,8 @@ function formValidation() {
     let isValid = true;
 
     inputs.forEach(function(input) {
-        if (!input.value.trim()) { // Check if the input is empty
+        // Check if the input is empty
+        if (!input.value.trim()) { 
             input.classList.add("invalid");
             isValid = false;
         } else {
@@ -74,22 +77,68 @@ function resetTiles() {
     </form>
     </div>
     `;
+
 }
 
 function changeReadStatus() {
-    var readButtons = document.querySelectorAll(".read-button");
+    let readButtons = document.querySelectorAll(".read-button");
 
     readButtons.forEach(function(readButton) {
         readButton.addEventListener("click", function(event) {
-            event.preventDefault(); // Prevent the default anchor behavior (e.g., navigating to another page)
+            // Prevent the default anchor behavior 
+            event.preventDefault(); 
             // Call your function here
             let index = parseInt(readButton.getAttribute("data-index"));
             bookList[index].read = !bookList[index].read;
             
-            resetTiles();
             updateTiles();
         });
     });
 }
 
+function deleteBook() {
+    let deleteButton = document.querySelectorAll(".trash");
+    
+    deleteButton.forEach(function(deleteButton) {
+        deleteButton.addEventListener("click", function(event) {
+            // Prevent the default anchor behavior 
+            event.preventDefault(); 
+            let index = parseInt(deleteButton.getAttribute("data-index"));
+            let confirmation = window.confirm("Are you sure you want to delete this book?");
+
+            if (confirmation) {
+                bookList.splice(index,1);
+                updateTiles();
+            }
+            
+        });
+    });
+}
+
+function testSettings() {
+     /**Temporary for tests */
+
+     let newBook = new Book(
+        "Sapiens",
+        "Yuval Noah Harari",
+        "512",
+        false
+        );
+    bookList.push(newBook);
+
+     document.getElementById("tiles").innerHTML += `
+     <div class="book-tile ">
+     <p>${bookList[0].title}</p>
+     <p>${bookList[0].author}</p>
+     <p>${bookList[0].pages} pages</p>
+     <div class="read-status"><p>Read</p><a src="#" class="read-button" data-index="0"><img src="./media/read${bookList[0].read}.png"></a></div>
+     <a src="#" class="trash-button" data-index=""><div class="trash"><a src="#" class="trash-button" data-index=""><img src="./media/trash.png"></div></a>
+     </div>
+     `;
+     changeReadStatus()
+     deleteBook();
+}
+
+
 resetTiles();
+testSettings();
