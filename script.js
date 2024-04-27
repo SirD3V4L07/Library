@@ -7,7 +7,6 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-
 function displayBooks() {
     let isValid = false;
         
@@ -22,15 +21,17 @@ function displayBooks() {
 
 function updateTiles() {
     for (let i = 0; i < bookList.length; i++) {
+        let tileClass = bookList[i].read ? "read" : "unread";
         document.getElementById("tiles").innerHTML += `
-        <div class="book-tile">
+        <div class="book-tile ${tileClass}">
         <p>${bookList[i].title}</p>
         <p>${bookList[i].author}</p>
         <p>${bookList[i].pages} pages</p>
-        <div class="read-status"><p>Read</p><img src="./media/notread.png"></div>
+        <div class="read-status"><p>Read</p><a src="#" class="read-button" data-index="${i}"><img src="./media/read${bookList[i].read}.png"></a></div>
         </div>
         `;
     }
+    changeReadStatus();
 }
 
 function insertBook() {
@@ -73,6 +74,22 @@ function resetTiles() {
     </form>
     </div>
     `;
+}
+
+function changeReadStatus() {
+    var readButtons = document.querySelectorAll(".read-button");
+
+    readButtons.forEach(function(readButton) {
+        readButton.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent the default anchor behavior (e.g., navigating to another page)
+            // Call your function here
+            let index = parseInt(readButton.getAttribute("data-index"));
+            bookList[index].read = !bookList[index].read;
+            
+            resetTiles();
+            updateTiles();
+        });
+    });
 }
 
 resetTiles();
