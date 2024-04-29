@@ -146,31 +146,6 @@ function displayStats() {
     timeBooks.innerHTML = `Reading time: ${hoursCount} hrs`;
 }
 
-function testSettings() {
-     /**Temporary for tests */
-
-     let newBook = new Book(
-        "Sapiens",
-        "Yuval Noah Harari",
-        "512",
-        false
-        );
-    bookList.push(newBook);
-
-     document.getElementById("tiles").innerHTML += `
-     <div class="book-tile ">
-     <p title="${bookList[0].title}">${bookList[0].title}</p>
-        <p title="${bookList[0].author}">${bookList[0].author}</p>
-     <p>${bookList[0].pages} pages</p>
-     <div class="read-status"><p>Read</p><a src="#" class="read-button" data-index="0"><img src="./media/read${bookList[0].read}.png"></a></div>
-     <a src="#" class="trash-button" data-index=""><div class="trash"><a src="#" class="trash-button" data-index=""><img src="./media/trash.png"></div></a>
-     </div>
-     `;
-     changeReadStatus()
-     deleteBook();
-}
-
 
 resetTiles();
-testSettings();
 displayStats();
