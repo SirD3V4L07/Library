@@ -24,8 +24,8 @@ function updateTiles() {
         let tileClass = bookList[i].read ? "read" : "unread";
         document.getElementById("tiles").innerHTML += `
         <div class="book-tile ${tileClass}">
-        <p>${bookList[i].title}</p>
-        <p>${bookList[i].author}</p>
+        <p title="${bookList[i].title}">${bookList[i].title}</p>
+        <p title="${bookList[i].author}">${bookList[i].author}</p>
         <p>${bookList[i].pages} pages</p>
         <div class="read-status"><p>Read</p><a src="#" class="read-button" data-index="${i}"><img src="./media/read${bookList[i].read}.png"></a></div>
         <a src="#" class="trash-button" data-index="${i}"><div class="trash"><a src="#" class="trash-button" data-index="${i}"><img src="./media/trash.png"></div></a>
@@ -159,8 +159,8 @@ function testSettings() {
 
      document.getElementById("tiles").innerHTML += `
      <div class="book-tile ">
-     <p>${bookList[0].title}</p>
-     <p>${bookList[0].author}</p>
+     <p title="${bookList[0].title}">${bookList[0].title}</p>
+        <p title="${bookList[0].author}">${bookList[0].author}</p>
      <p>${bookList[0].pages} pages</p>
      <div class="read-status"><p>Read</p><a src="#" class="read-button" data-index="0"><img src="./media/read${bookList[0].read}.png"></a></div>
      <a src="#" class="trash-button" data-index=""><div class="trash"><a src="#" class="trash-button" data-index=""><img src="./media/trash.png"></div></a>
