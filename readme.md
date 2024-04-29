@@ -7,4 +7,7 @@ Get the form to add a new book to library array and update the display
 Get the read button to mark book as read
 Delete button to delete book
 Get stats tile to acount for stats
+Address text overflow for large titles and author strings
+Address delete button placement variation due to long strings
 Responsiveness?
+

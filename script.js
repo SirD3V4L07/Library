@@ -34,6 +34,7 @@ function updateTiles() {
     }
     changeReadStatus();
     deleteBook();
+    displayStats();
 }
 
 function insertBook() {
@@ -115,6 +116,36 @@ function deleteBook() {
     });
 }
 
+function displayStats() {
+    let totalBooks = document.getElementById("total-books");
+    let readBooks = document.getElementById("read-books");
+    let unreadBooks = document.getElementById("unread-books");
+    let timeBooks = document.getElementById("time-books");
+    let readCount = 0;
+    let unreadCount = 0;
+    let hoursCount = 0;
+
+    for (i = 0; i < bookList.length; i++) {
+        if (bookList[i].read == false) {
+            unreadCount += 1;
+        } 
+        if (bookList[i].read == true) {
+            readCount += 1;
+            hoursCount += parseInt(bookList[i].pages);
+            console.log(hoursCount);
+        }
+    }
+
+    if (readCount > 0) {
+        hoursCount = (hoursCount / 60).toFixed(2);
+    }
+
+    totalBooks.innerHTML = `Total Books: ${bookList.length}`;
+    readBooks.innerHTML = `Read Books: ${readCount}`;
+    unreadBooks.innerHTML = `Unread Books ${unreadCount}`;
+    timeBooks.innerHTML = `Reading time: ${hoursCount} hrs`;
+}
+
 function testSettings() {
      /**Temporary for tests */
 
@@ -142,3 +173,4 @@ function testSettings() {
 
 resetTiles();
 testSettings();
+displayStats();
