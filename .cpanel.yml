@@ -1,5 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/ricardoh/public_html/Library
-    - /bin/cp -R * $DEPLOYPATH
