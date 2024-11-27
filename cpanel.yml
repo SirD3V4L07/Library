@@ -1,9 +1,0 @@
-deployment:
-  branch: main  # or the branch you want to deploy from
-  root: /home/ricardoh/public_html/Library  # the directory to deploy the files to
-  tasks:
-    - export DEPLOYPATH=/home/ricardoh/public_html/Library
-    - /bin/cp -R /home/ricardoh/public_html/Library/index.html $DEPLOYPATH
-    - /bin/cp -R /home/ricardoh/public_html/Library/style.css $DEPLOYPATH
-    - /bin/cp -R /home/ricardoh/public_html/Library/readme.md $DEPLOYPATH
-    - /bin/cp -R /home/ricardoh/public_html/Library/script.js $DEPLOYPATH
